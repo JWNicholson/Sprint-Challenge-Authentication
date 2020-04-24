@@ -15,6 +15,10 @@ module.exports = {
       filename: './database/test.db3'
     },
     useNullAsDefault: true,
+    pool: {
+      min: 2,
+      max: 10
+    },
     migrations: {
       directory: './database/migrations'
     },

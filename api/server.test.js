@@ -13,4 +13,4 @@ describe('server', () => {
             expect(res.status).toBe(200);
         })
     })
-})
+});

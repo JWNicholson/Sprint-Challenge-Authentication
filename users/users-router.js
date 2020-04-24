@@ -11,6 +11,6 @@ router.get('/', (req, res) => {
             console.log(err)
             res.status(500).json({ message: 'Could not get users' })
         })
-})
+});
 
 module.exports = router;

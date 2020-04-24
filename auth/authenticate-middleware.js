@@ -11,12 +11,12 @@ module.exports = (req, res, next) => {
   const token = req.headers.authorization;
 
   if(token) {
-    jwt.verify(token, jwtSecret, (err, decodedToken) => {
-      if(err) {
+    jwt.verify(token, jwtSecret, (error, decodedToken) => {
+      if(error) {
         res.status(401).json({ message: 'Invalid token' })
       } else {
         req.decodedToken = decodedToken;
-        next()
+        next();
       }
     })
   } else {

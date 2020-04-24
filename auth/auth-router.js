@@ -6,7 +6,7 @@ const secrets = require('../config/secrets');
 router.post('/register', (req, res) => {
   let user = req.body;
 
-  const hash = bcrypt.hashSync(user.password, 10);
+  const hash = bcrypt.hashSync(user.password, 8);
 
   user.password = hash;
 
@@ -14,8 +14,8 @@ router.post('/register', (req, res) => {
     .then(saved => {
       res.status(201).json(saved)
     })
-    .catch(err => {
-      console.log(err)
+    .catch(error => {
+      console.log(error)
       res.status(500).json({ message: "Could not register new user" })
     })
 
@@ -38,8 +38,8 @@ router.post('/login', (req, res) => {
         res.status(401).json({ message: "Invalid credentials" })
       }
     })
-    .catch(err => {
-      console.log(err)
+    .catch(error => {
+      console.log(error)
       res.status(500).json({ message: "Could not login user "})
     })
 });
